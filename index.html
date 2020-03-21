@@ -152,93 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/21/My-New-Post/">如何用Hexo搭建一个自己的博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/21/My-New-Post/" class="archive-article-date">
-  	<time datetime="2020-03-21T10:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>hexo依赖node环境,需要安装node<br>安装后 node -v 可查看版本即是否安装完成</p>
-<hr>
-<h2 id="安装hexo-cli包"><a href="#安装hexo-cli包" class="headerlink" title="安装hexo-cli包"></a>安装hexo-cli包</h2><p>环境配置好后,安装需要依赖的hexo-cli包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>查看是否安装成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-<p>创建一个文件夹放项目可使用vscode、webstorm等软件<br>然后打开终端cd到此目录,如果是window系统则输入以下命令初始化hexo博客模板</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<p>此时博客就搭建好了,启动服务器命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server </span><br><span class="line">$ hexo s  --简写</span><br></pre></td></tr></table></figure>
-<p>会自动生成本地服务器默认端口为4000,点击就可进行浏览</p>
-<h4 id="建议使用编码工具，可视化操作起来更容易理解"><a href="#建议使用编码工具，可视化操作起来更容易理解" class="headerlink" title="建议使用编码工具，可视化操作起来更容易理解"></a>建议使用编码工具，可视化操作起来更容易理解</h4><p>添加博客文章就在目录下source/_posts文件下创建md文件就可</p>
-<h2 id="添加到github上"><a href="#添加到github上" class="headerlink" title="添加到github上"></a>添加到github上</h2><p>首先在github上创建新项目 名字以自己的github名字开头，这样就可以通过github远程访问，<br>就不需要在本地运行才可访问。<br>比如我的github名字是 Codermi7<br>创建的项目名字为 Codermi7.github.io</p>
-<h4 id="本地项目需依赖一个包"><a href="#本地项目需依赖一个包" class="headerlink" title="本地项目需依赖一个包"></a>本地项目需依赖一个包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm i -S hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<h4 id="配置目录下-config-yml文件最下面的deploy"><a href="#配置目录下-config-yml文件最下面的deploy" class="headerlink" title="配置目录下_config.yml文件最下面的deploy"></a>配置目录下_config.yml文件最下面的deploy</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'git'</span></span><br><span class="line">  repo: <span class="string">'https://github.com/Codermi7/Codermi7.github.io.git'</span> //repo对应的是你GitHub项目地址</span><br><span class="line">  branch: <span class="string">'master'</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="添加到github上执行的命令"><a href="#添加到github上执行的命令" class="headerlink" title="添加到github上执行的命令"></a>添加到github上执行的命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean              //清理文件</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate          // 生成文件</span><br><span class="line">$ hexo g  --简写</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy           //上传到github远程仓库</span><br><span class="line">$ hexo d  --简写</span><br></pre></td></tr></table></figure>
-<p>刷新github仓库可查看文件是否上传成功<br>上传成功后可以通过项目名称在浏览器中访问博客</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">比如我的项目名称是:Codermi7.github.io 可以通过此在浏览器直接访问,非常方便</span><br><span class="line">修改文件后需要重新上传一次，不然GitHub远程不会刷新</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/21/My-New-Post/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-vue-bind" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -275,6 +188,93 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/21/vue-bind/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/21/My-New-Post/">如何用Hexo搭建一个自己的博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/21/My-New-Post/" class="archive-article-date">
+  	<time datetime="2020-03-21T10:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>hexo依赖node环境,需要安装node<br>安装后 node -v 可查看版本即是否安装完成</p>
+<hr>
+<h2 id="安装hexo-cli包"><a href="#安装hexo-cli包" class="headerlink" title="安装hexo-cli包"></a>安装hexo-cli包</h2><p>环境配置好后,安装需要依赖的hexo-cli包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>查看是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+<p>创建一个文件夹放项目可使用vscode、webstorm等软件<br>然后打开终端cd到此目录,如果是window系统则输入以下命令初始化hexo博客模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>此时博客就搭建好了,启动服务器命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server </span><br><span class="line">$ hexo s  --简写</span><br></pre></td></tr></table></figure>
+<p>会自动生成本地服务器默认端口为4000,点击就可进行浏览</p>
+<h4 id="建议使用编码工具，可视化操作起来更容易理解"><a href="#建议使用编码工具，可视化操作起来更容易理解" class="headerlink" title="建议使用编码工具，可视化操作起来更容易理解"></a>建议使用编码工具，可视化操作起来更容易理解</h4><p>添加博客文章就在目录下source/_posts文件下创建md文件就可</p>
+<h2 id="添加到github上"><a href="#添加到github上" class="headerlink" title="添加到github上"></a>添加到github上</h2><p>首先在github上创建新项目 名字以自己的github名字开头，这样就可以通过github远程访问，<br>就不需要在本地运行才可访问。<br>比如我的github名字是 Codermi7<br>创建的项目名字为 Codermi7.github.io</p>
+<h4 id="本地项目需依赖-hexo-deployer-git-包"><a href="#本地项目需依赖-hexo-deployer-git-包" class="headerlink" title="本地项目需依赖 hexo-deployer-git 包"></a>本地项目需依赖 hexo-deployer-git 包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm i -S hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<h4 id="配置目录下-config-yml文件最下面的deploy"><a href="#配置目录下-config-yml文件最下面的deploy" class="headerlink" title="配置目录下_config.yml文件最下面的deploy"></a>配置目录下_config.yml文件最下面的deploy</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'git'</span></span><br><span class="line">  repo: <span class="string">'https://github.com/Codermi7/Codermi7.github.io.git'</span> //repo对应的是你GitHub项目地址</span><br><span class="line">  branch: <span class="string">'master'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加到github上执行的命令"><a href="#添加到github上执行的命令" class="headerlink" title="添加到github上执行的命令"></a>添加到github上执行的命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean              //清理文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate          // 生成文件</span><br><span class="line">$ hexo g  --简写</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy           //上传到github远程仓库</span><br><span class="line">$ hexo d  --简写</span><br></pre></td></tr></table></figure>
+<p>刷新github仓库可查看文件是否上传成功<br>上传成功后可以通过项目名称在浏览器中访问博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">比如我的项目名称是:Codermi7.github.io 可以通过此在浏览器直接访问,非常方便</span><br><span class="line">修改文件后需要重新上传一次，不然GitHub远程不会刷新</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/21/My-New-Post/">展开全文 >></a>
         </p>
       
 
